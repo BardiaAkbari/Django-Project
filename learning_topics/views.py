@@ -6,13 +6,13 @@ from .form import TopicFrom, EntryForm
 
 
 def index(request):
-    template = loader.get_template('index.html')
+    template = loader.get_template('learning_topics\\index.html')
     return HttpResponse(template.render())
 
 
 def topics(request):
     topics = Topic.objects.order_by('added_date')
-    template = loader.get_template('topics.html')
+    template = loader.get_template('learning_topics\\topics.html')
     context = {
         'topics': topics
     }
@@ -21,7 +21,7 @@ def topics(request):
 
 def topic(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
-    template = loader.get_template('topic.html')
+    template = loader.get_template('learning_topics\\topic.html')
     entries = topic.entry_set.order_by('-added_date')
     context = {
         'topic': topic,
@@ -31,7 +31,7 @@ def topic(request, topic_id):
 
 
 def new_topic(request):
-    template = loader.get_template('new_topic.html')
+    template = loader.get_template('learning_topics\\new_topic.html')
 
     if request.method != 'POST':
         form = TopicFrom()
@@ -48,7 +48,7 @@ def new_topic(request):
 
 
 def new_entry(request, topic_id):
-    template = loader.get_template('new_entry.html')
+    template = loader.get_template('learning_topics\\new_entry.html')
 
     topic = Topic.objects.get(id=topic_id)
 
@@ -71,7 +71,7 @@ def new_entry(request, topic_id):
 
 def edit_entry(request, entry_id):
 
-    template = loader.get_template('edit_entry.html')
+    template = loader.get_template('learning_topics\\edit_entry.html')
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
 
