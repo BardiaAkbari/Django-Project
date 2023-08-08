@@ -1,5 +1,14 @@
 {% extends "learning_topics\\base.html" %}
 
-{% block content %}
-  <p>This is my first django project.</p>
-{% endblock content %}
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-3">Track your learning</h1>
+        <p class="lead">
+            Make your own Learning log, and keep a list of
+            the topics you're learning about. Whenever your learn something new about a
+            topic, make an entry  what you've learned.</p>
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">
+        Register &raquo;
+    </a>
+    </div>
+{% endblock page_header %}

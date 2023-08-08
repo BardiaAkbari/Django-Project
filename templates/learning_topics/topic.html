@@ -1,28 +1,31 @@
 {% extends "learning_topics\\base.html" %}
 
+{% block page_header %}
+    <h3>{{ topic.text }}</h3>
+{% endblock page_header %}
+
 {% block content %}
-
-    <p>Topic: {{ topic.text }} </p>
-
-
-    <p>Entries:</p>
 
     <p>
         <a href="{% url 'learning_topics:new_entry' topic.id %}">Add new entry</a>
     </p>
 
-    <ul>
-        {% for entry in entries %}
-            <li>
-                <p>{{ entry.added_date }}</p>
-                <p>{{ entry.text|linebreaks }}</p>
-                <p>
-                    <a href="{% url 'learning_topics:edit_entry' entry.id %}">Edit entry</a>
-                </p>
-            </li>
-        {% empty %}
-            <li>There are no entry for this topic yet</li>
-        {% endfor %}
-    </ul>
+    {% for entry in entries %}
+        <div class="card mb-3">
+
+            <h4 class="card-header">
+                {{ entry.added_date}}
+                <small><small>
+                    <a href="{% url 'learning_topics:edit_entry' entry.id %}">edit entry</a>
+                </small></small>
+            </h4>
+
+            <div class="card-body">
+                {{ entry.text|linebreaks }}
+            </div>
+        </div>
+    {% empty %}
+        <p>There are no entry for this topic yet</p>
+    {% endfor %}
 
 {% endblock content %}

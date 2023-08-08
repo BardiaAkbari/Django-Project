@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Topic(models.Model):
     text = models.CharField(max_length=50)
-    added_date = models.DateField(auto_now_add=True)
+    added_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
