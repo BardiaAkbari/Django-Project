@@ -1,4 +1,4 @@
-{% load django_bootstrap5 %}
+{% load bootstrap4 %}
 
 <!doctype html>
 <html lang="en">
@@ -10,7 +10,7 @@
             shrink-to-fit=no"/>
         <title>Learning log</title>
         {% bootstrap_css %}
-        {% bootstrap_javascript %}
+        {% bootstrap_javascript jquery='full' %}
 
     </head>
 
@@ -26,13 +26,13 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr_auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'learning_topics:index' %}">Topics</a>
                     </li>
                 </ul>
 
-                 <ul class="navbar-nav ml-auto">
+                 <ul class="navbar-nav ml_auto">
                      {% if user.is_authenticated %}
                          <li class="nav-item">
                              <span class="navbar-text">Hello, {{ user.username }}.</span>
