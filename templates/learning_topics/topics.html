@@ -9,16 +9,20 @@
 
     <ul>
         {% for topic in topics %}
-        <li><h3>
+        <h3>
+            <li>
             <a href="{% url 'learning_topics:topic' topic.id %}"> {{ topic.text }} </a>
-            {% empty %}
-        </h3></li>
-        <li><h3>No topics have been added yet</h3></li>
+            </li>
+        </h3>
+        {% empty %}
+        <h3>
+            <li>No topics have been added yet</li>
+        </h3>
         {% endfor %}
     </ul>
 
     <h3>
-        <a href="{% url 'learning_topics:new_topic' %}">Add new topic
+        <a href="{% url 'learning_topics:new_topic' %}">- Add new topic
         </a>
     </h3>
 

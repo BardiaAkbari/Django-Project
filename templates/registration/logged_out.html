@@ -1,5 +1,21 @@
 {% extends "learning_topics\\base.html" %}
 
+{% block page_header %}
+    <h3>Goodbye :(</h3>
+{% endblock page_header %}
+
 {% block content %}
-    <h2>Thank you for visiting.</h2>
+
+     <div class="jumbotron">
+         <h1 class="display-3">Thank you for visiting Us.</h1>
+
+         <p class="lead">
+            We hope that we have had a small influence on your learning.</p>
+         <p class="lead">
+             We Love to see you again.
+         </p>
+     <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">
+        Register &raquo;
+     </a>
+     </div>
 {% endblock content %}

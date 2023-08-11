@@ -14,7 +14,7 @@
         <div class="card mb-3">
 
             <h4 class="card-header">
-                {{ entry.added_date}}
+                {{ entry.added_date|date:'M d, Y - H:i'}}
                 <small><small>
                     <a href="{% url 'learning_topics:edit_entry' entry.id %}">edit entry</a>
                 </small></small>

@@ -126,3 +126,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My Settings
 LOGIN_URL = 'users:login'
+TIME_INPUT_FORMATS = ('%H:%M',)
